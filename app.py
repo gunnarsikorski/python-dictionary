@@ -1,14 +1,25 @@
 import json
+from difflib import get_close_matches
 
 data = json.load(open('data.json'))
+
 
 def translate(word):
     word = word.lower()
     if word in data:
         return data[word]
+    elif len(get_close_matches(word, data.keys())) > 0:
+        guess = get_close_matches(word, data.keys())[0]
+        yes_no = input(f'Did you mean \'{guess}\' instead? Enter Y if yes, or N if no: ')
+        if yes_no == 'Y' or yes_no == 'y':
+            return data[guess]
     else:
         return 'This word doesn\'t exist. Please try again'
+
 
 user_word = input('Enter a word: ')
 
 print(translate(user_word))
+
+
+# This project is great, discovering another python library - in this instance difflib and within it being able to use get_close_matches and understanding a little bit about how it works with SequenceMatcher and the ratio of similarity between strings, using it to guess what someone may have misspelled.
