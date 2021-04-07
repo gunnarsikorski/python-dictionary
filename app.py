@@ -13,6 +13,10 @@ def translate(word):
         yes_no = input(f'Did you mean \'{guess}\' instead? Enter Y if yes, or N if no: ').lower()
         if yes_no == 'y':
             return data[guess]
+        elif yes_no == 'n':
+            return 'Please double check your input'
+        else:
+            return 'We do not understand the input'
     else:
         return 'This word doesn\'t exist. Please try again'
 
@@ -22,4 +26,4 @@ user_word = input('Enter a word: ')
 print(translate(user_word))
 
 
-# This project is great, discovering another python library - in this instance difflib and within it being able to use get_close_matches and understanding a little bit about how it works with SequenceMatcher and the ratio of similarity between strings, using it to guess what someone may have misspelled.
+# Fun snippet - discovering another python library - in this instance difflib and within it being able to use get_close_matches and understanding a little bit about how it works with SequenceMatcher and the ratio of similarity between strings, using it to guess what someone may have misspelled.
