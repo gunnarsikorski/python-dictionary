@@ -23,7 +23,14 @@ def translate(word):
 
 user_word = input('Enter a word: ')
 
-print(translate(user_word))
+output = translate(user_word)
 
+if type(output) == list:
+    for i in output:
+        print(f'{user_word}: {i}')
+else:
+    print(output)
 
-# Fun snippet - discovering another python library - in this instance difflib and within it being able to use get_close_matches and understanding a little bit about how it works with SequenceMatcher and the ratio of similarity between strings, using it to guess what someone may have misspelled.
+# Fun snippet - discovering another python library - in this instance difflib and within it being able 
+# to use get_close_matches and understanding a little bit about how it works with SequenceMatcher and the 
+# ratio of similarity between strings, using it to guess what someone may have misspelled.
