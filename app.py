@@ -10,8 +10,8 @@ def translate(word):
         return data[word]
     elif len(get_close_matches(word, data.keys())) > 0:
         guess = get_close_matches(word, data.keys())[0]
-        yes_no = input(f'Did you mean \'{guess}\' instead? Enter Y if yes, or N if no: ')
-        if yes_no == 'Y' or yes_no == 'y':
+        yes_no = input(f'Did you mean \'{guess}\' instead? Enter Y if yes, or N if no: ').lower()
+        if yes_no == 'y':
             return data[guess]
     else:
         return 'This word doesn\'t exist. Please try again'
